@@ -14,3 +14,7 @@
 "scripts": {
     "dev": "nodemon",
 }
+
+4- Pour démarrer le server : 
+
+$ npm run dev
