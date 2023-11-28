@@ -13,9 +13,10 @@ console.log(`📚[DATABASE] MongoDB is running 🔥`)
 const port = process.env.PORT || 6789;
 
 const coursesRouter = require("./routes/coursesRoute");
-
+const authorRouter = require("./routes/authorsRoute");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use("/api/authors", authorRouter);
 app.use("/api/courses", coursesRouter);
 app.listen(port, () => console.log(`[SERVER] is runinning on port ${port}`));

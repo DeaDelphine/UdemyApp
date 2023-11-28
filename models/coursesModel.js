@@ -5,8 +5,8 @@ const courseSchema = new Schema({
     price: {type: Number, required:true},
     isPublished: { type: Boolean, default: false },
     tags: { type: Array, default: [] },
-    author: {type:
-        mongoose.Schema.Types.ObjectId, ref:"Authors"}
+    authorId: {type:
+        mongoose.Schema.Types.ObjectId, ref:"Author"}
 })
     
 const Courses = mongoose.model("Courses", courseSchema);

@@ -1,9 +1,9 @@
-const {addAuthor, getAuthors, putAuthor, removeAuthor } = require("../controllers/authorsControllers");
+const {addAuthor,  putAuthor, removeAuthor, getAllAuthors } = require("../controllers/authorsControllers");
   
 const router = require("express").Router();
   
 router.post("/new", addAuthor);
-router.get("/", getAuthors);
+router.get("/", getAllAuthors);
 router.put("/:id/edit", putAuthor);
 router.delete("/:id/delete", removeAuthor);
   

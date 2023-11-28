@@ -1,8 +1,8 @@
-const Authors = require("../models/authorsModel");
+const Author = require("../models/authorsModel");
 
 const addAuthor = async (req, res) => {
   try {
-    const newAuthor = new Authors (req.body);
+    const newAuthor = new Author(req.body);
     await newAuthor.save();
     res.json(newAuthor);
   } catch (error) {
@@ -10,9 +10,9 @@ const addAuthor = async (req, res) => {
   }
 };
 
-const getAuthors = async (req, res) => {
+const getAllAuthors = async (req, res) => {
     try {
-        const authors = await Authors.find();
+        const authors = await Author.find();
         res.json(authors);
     } catch (error) {
         res.json({ message: error.message });
@@ -21,7 +21,7 @@ const getAuthors = async (req, res) => {
 
 const putAuthor = async (req, res) => {
     try {
-        const author = await Authors.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const author = await Author.findByIdAndUpdate(req.params.id, req.body, { new: true });
         res.json(author);
     } catch (error) {
         res.json({ message: error.message });
@@ -30,7 +30,7 @@ const putAuthor = async (req, res) => {
 
 const removeAuthor = async (req, res) => {
     try {
-        const author = await Authors.findByIdAndDelete(req.params.id);
+        const author = await Author.findByIdAndDelete(req.params.id);
         res.json(author);
     } catch (error) {
         res.json({ message: error.message });
@@ -38,4 +38,4 @@ const removeAuthor = async (req, res) => {
 };
 
 
-module.exports = { addAuthor, getAuthors, putAuthor, removeAuthor };
+module.exports = { addAuthor, getAllAuthors, putAuthor, removeAuthor };
